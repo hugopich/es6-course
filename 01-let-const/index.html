@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>01 - Let and const</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="cart mx-auto">
+        <h1 class="text-white">Your shopping cart</h1>
+        <ul class="ui-list list-group">
+            <li class="list-group-item">Loading items...</li>
+        </ul>
+        <div class="d-flex mt-2 justify-content-end">
+            <button type="button" class="btn btn-warning"
+                onclick="this.innerText='Just kidding...'">Checkout</button>
+        </div>
+    </div>
+
+    <script>
+
+        function populateUiList(array) {
+            // poorly named
+            var element = document.querySelector('.ui-list');
+            var uiItems = '';
+
+            for (var i = 0; i < array.length; i++) {
+                // oops
+                var element = '<li>' + array[i] + '</li>\n';
+                //const element = '<li class="list-group-item p-2">' + array[i] + '</li>\n';
+
+                uiItems += element;
+            }
+            element.innerHTML = uiItems;
+        }
+
+        var array = ['a', 'b'];
+        populateUiList(array);
+
+        /*
+            solution :
+            in the for loop, replace var element by cont element (may be let)
+        */
+    </script>
+</body>
